@@ -16,7 +16,7 @@ public class NestedLoops {
             {
                 for (int x = 2; x <= 3; x++)
                 {
-                    System.out.println("value of i is "+ i + " value of j is "+ j +" value of x is "+x);
+                    System.out.println("value of i is "+ i + " value of j is "+ j +" value of x is "+ x);
                     count++;
                                     }
                 j++;
