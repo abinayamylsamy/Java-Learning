@@ -1,4 +1,4 @@
-package com.example;
+package com.example.polymorphism;
 
 public class PolyMethodOverridingAnimal{
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.example;
+package com.example.abstractclass;
 
 public class AbstractClassSquare extends AbstractClass {
     public static void main(String[] args) {

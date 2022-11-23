@@ -1,4 +1,4 @@
-package com.example;
+package com.example.array;
 
 public class MultiDimensionalArray {
     public static void main(String[] args) {

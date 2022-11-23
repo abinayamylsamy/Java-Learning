@@ -1,4 +1,4 @@
-package com.example;
+package com.example.inheritance;
 
 public class InheritanceVehicleCommon {
 

@@ -1,6 +1,14 @@
-package com.example;
+package com.example.encapsulation;
 
 public class EncapsulationDrawBox {
+
+    public EncapsulationDrawBox(int len) {
+        this.length = len;
+    }
+
+    public EncapsulationDrawBox(int len, int width) {
+        this.length = len;
+    }
 
     private int length;
 

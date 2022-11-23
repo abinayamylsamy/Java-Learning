@@ -1,6 +1,6 @@
-package com.example;
+package com.example.inheritance;
 
-public class MultilevelInheritanceTruckSpecific extends InheritanceTruck{
+public class MultilevelInheritanceTruckSpecific extends InheritanceTruck {
     public static void main(String[] args) {
 
         MultilevelInheritanceTruckSpecific itks = new MultilevelInheritanceTruckSpecific();

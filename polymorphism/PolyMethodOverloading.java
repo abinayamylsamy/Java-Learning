@@ -1,4 +1,4 @@
-package com.example;
+package com.example.polymorphism;
 
 public class PolyMethodOverloading {
     public static void main(String[] args) {
