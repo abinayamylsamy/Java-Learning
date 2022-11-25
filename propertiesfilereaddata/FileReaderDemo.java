@@ -1,4 +1,4 @@
-package com.example;
+package com.example.propertiesfilereaddata;
 
 import java.io.FileReader;
 import java.io.IOException;

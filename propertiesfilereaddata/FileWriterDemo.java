@@ -1,6 +1,5 @@
-package com.example;
+package com.example.propertiesfilereaddata;
 
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
