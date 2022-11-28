@@ -20,10 +20,17 @@ public class SingleDimensionalArray {
         int[] myIntArray1 = {10, 20, 30, 40, 50};
         System.out.println(myIntArray1[2]);
 
-        for (int i = 0; i < myIntArray1.length; i++)
-        System.out.println(myIntArray1[i]);
+        for (int i = 0; i < myIntArray1.length; i++) {
+            System.out.println(myIntArray1[i]);
+        }
 
+        for (int arrayValue: myIntArray1) {
+            numberDisplay(arrayValue);
+        }
+    }
 
+    private void numberDisplay(int num) {
+        System.out.println(num);
     }
 }
 

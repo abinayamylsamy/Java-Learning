@@ -1,6 +1,5 @@
 package com.example.readwriteinxlfile;
 
-import org.apache.poi.ss.formula.atp.Switch;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.File;
@@ -11,31 +10,70 @@ import java.io.IOException;
 public class ReadExcelFile {
     public static void main(String[] args) throws IOException {
 
-        File f= new File("D:\\Projects\\JavaLearning\\src\\com\\example\\readwritedata\\file.xlsx");
+        ReadExcelFile readExcelFile = new ReadExcelFile();
+
+        File f= new File("D:\\Projects\\JavaLearning\\src\\com\\example\\readwritedata\\login-testdata.xls");
         FileInputStream fis = new FileInputStream(f);
 
         Workbook workbook = WorkbookFactory.create(fis);
-        Sheet sheet0 = workbook.getSheetAt(0);
-//        Row r0= sheet0.getRow(0);
-//        Cell c0= r0.getCell(0);
-//        Row r1= sheet0.getRow(1);
-//        Cell c1= r1.getCell(1);
-//        Row r2= sheet0.getRow(2);
-//        Cell c2= r2.getCell(2);
+
+        //For each loop
+        for (Sheet sheet: workbook) {
+            readExcelFile.readRowFromSheet(sheet);
+        }
+
+/*      Traditional for loop
+        for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
+            Sheet sheet = workbook.getSheetAt(i);
+        }
+*/
+//        Sheet sheet0 = workbook.getSheetAt(0);
+//        readExcelFile.readDataFromSheet(sheet0);
 //
-//        System.out.println(c0);
-//        System.out.println(c1);
-//        System.out.println(c2);
+//        System.out.println("Printing second sheet");
+//
+//        Sheet sheet1 = workbook.getSheetAt(1);
+//        readExcelFile.readDataFromSheet(sheet1);
 
+        fis.close();
+    }
 
+    private void readRowFromSheet(Sheet sheet) {
+/*
+        for (int i = 0; i < sheet.getLastRowNum(); i++) {
+            Row row = sheet.getRow(i);  //Pick one Row
+            for (int j = 0; j < row.getLastCellNum(); j++) {
+                Cell cell = row.getCell(j); //Pick one cell
+            }
+        }
+*/
 
-        for(Row row : sheet0){
+        for(Row row : sheet){
+            if (row.getRowNum() == 0) {
+                //Ignoring excel headers
+                continue;
+            }
+            String email = null;
+            String password = null;
             for(Cell cell : row) {
-                switch(cell.getCellType())
-                {
+
+                if (cell.getColumnIndex() == 0) {
+                    //Ignoring column S.No values
+                    continue;
+                }
+
+                if (cell.getColumnIndex() == 1) {
+                   email = cell.getStringCellValue();
+                }
+
+                if (cell.getColumnIndex() == 2) {
+                    password = cell.getStringCellValue();
+                }
+
+                /*switch(cell.getCellType()) {
                     case STRING:
-                    System.out.println(cell.getStringCellValue());
-                    break;
+                        System.out.println(cell.getStringCellValue());
+                        break;
 
                     case BOOLEAN:
                         System.out.println(cell.getBooleanCellValue());
@@ -44,16 +82,10 @@ public class ReadExcelFile {
                     case NUMERIC:
                         System.out.println(cell.getNumericCellValue());
                         break;
-
-
-
-
-                }
+                }*/
             }
+            System.out.println("Email is "+email + " Password is "+ password);
+            //SeleniumLoginWebdriver.login(email, password)
         }
-
-
-
-        fis.close();
     }
 }
